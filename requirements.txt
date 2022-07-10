@@ -2,3 +2,4 @@ gym
 notebook
 matplotlib
 gym[classic_control]
+tqdm

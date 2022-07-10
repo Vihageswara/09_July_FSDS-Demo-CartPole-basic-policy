@@ -2,6 +2,7 @@ from bdb import Breakpoint
 import gym
 import numpy as np
 import time
+from tqdm import tqdm
 
 env = gym.make("CartPole-v1")
 
@@ -25,7 +26,7 @@ for episode in range(N_episodes):
     # CartPoistion, CartVelocity, PoleAngle, PoleAngularVelocity
     Observations = env.reset()
     PoleAngle = Observations[2]
-    for step in range(N_steps):
+    for step in tqdm(range(N_steps)):
         env.render()
         action = basic_policy(PoleAngle)
         Observations, reward, done, info = env.step(action)
